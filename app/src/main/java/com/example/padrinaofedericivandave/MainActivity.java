@@ -48,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        CD_INTCache.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                CD_toINTCache();
+            }
+        });
+
     }
     public void SD_toSharedPref(){
         SharedPreferences sharedPreferences = getSharedPreferences("SD_SharedPref", Context.MODE_PRIVATE);
@@ -106,7 +114,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void CD_toINTCache(){
 
+        String task = "task: ";
+        String task1 = "Saving Data";
+        String location ="location: ";
+        String location1="Internal Storage";
+
+        String details = task + " " + task1;
+        String details1 = location + " " + location1;
+
+        FileOutputStream s = null;
+        try{
+            File folder = getCacheDir();
+            File file = new File(folder, "PracticalExamCache.txt");
+            s = new FileOutputStream(file);
+            s.write(details.getBytes());
+            s.write(details1.getBytes());
+        } catch (Exception e){}
+    }
 
 
 
