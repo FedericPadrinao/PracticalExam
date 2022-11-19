@@ -39,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SD_EXTStorage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                SD_toEXTStorage();
+            }
+        });
 
 
     }
@@ -73,6 +80,31 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public void SD_toEXTStorage(){
+        String task = "task: ";
+        String task1 = "Saving Data";
+        String location ="location: ";
+        String location1="Internal Storage";
+
+        String details = task + " " + task1;
+        String details1 = location + " " + location1;
+
+        FileOutputStream s = null;
+
+        try{
+            File Folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            File file = new File(Folder, "SD_ExternalStorage.txt");
+
+            s = new FileOutputStream(file);
+            s.write(details.getBytes());
+            s.write(details1.getBytes());
+        }
+        catch (Exception e){
+
+        }
+    }
+
 
 
 
