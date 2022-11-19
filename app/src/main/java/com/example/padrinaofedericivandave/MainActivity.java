@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SD_INTStorage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                SD_toINTStorage();
+            }
+        });
 
 
 
@@ -45,6 +52,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void SD_toINTStorage(){
+        String task = "task: ";
+        String task1 = "Saving Data";
+        String location ="location: ";
+        String location1="Internal Storage";
+
+        String details = task + " " + task1;
+        String details1 = location + " " + location1;
+
+        FileOutputStream s = null;
+
+        try{
+            s = openFileOutput("SD_InternalStorage", Context.MODE_PRIVATE);
+            s.write(details.getBytes());
+            s.write(details1.getBytes());
+        }
+        catch (Exception e){
+
+        }
+    }
 
 
 
@@ -54,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-     ''
+
 }
 
 
