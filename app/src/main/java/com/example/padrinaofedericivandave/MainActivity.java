@@ -127,12 +127,14 @@ public class MainActivity extends AppCompatActivity {
         FileOutputStream s = null;
         try{
             File folder = getCacheDir();
-            File file = new File(folder, "PracticalExamCache.txt");
+            File file = new File(folder, "InternalExamCache.txt");
             s = new FileOutputStream(file);
             s.write(details.getBytes());
             s.write(details1.getBytes());
         } catch (Exception e){}
     }
+
+
 
 
 
